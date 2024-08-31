@@ -1,49 +1,32 @@
-print('hello')
-import pandas 
-from sklearn import linear_model 
-from sklearn.preprocessing import StandardScaler
-scale = StandardScaler()
-import warnings
-warnings.filterwarnings("ignore", category=UserWarning)
+import numpy
+import matplotlib.pyplot as plt
+numpy.random.seed(2)
+from sklearn.metrics import r2_score
 
-df = pandas.read_csv("data.csv") 
-X = df[['Weight', 'Volume']]
-y = df['CO2'] 
-regr = linear_model.LinearRegression()
-regr.fit(X, y) 
-predictedCO2 = regr.predict([[2300, 1300]]) 
-print(predictedCO2)
-df = pandas.read_csv("data.csv")
+x = numpy.random.normal(3, 1, 100)
+y = numpy.random.normal(150, 40, 100) / x
 
-X = df[['Weight', 'Volume']]
-y = df['CO2']
+plt.scatter(x, y)
+#plt.show() 
 
-regr = linear_model.LinearRegression()
-regr.fit(X, y)
+train_x = x[:80]
+train_y = y[:80]
+test_x = x[80:]
+test_y = y[80:]
 
-predictedCO2 = regr.predict([[3300, 1300]])
+mymodel = numpy.poly1d(numpy.polyfit(train_x, train_y, 4))
 
-print(predictedCO2) 
+myline = numpy.linspace(0, 6, 100)
 
-df = pandas.read_csv("data.csv")
+plt.scatter(train_x, train_y)
+plt.plot(myline, mymodel(myline))
+plt.show() 
 
-X = df[['Weight', 'Volume']]
+r2 = r2_score(train_y, mymodel(train_x))
 
-scaledX = scale.fit_transform(X)
+mymodel = numpy.poly1d(numpy.polyfit(train_x, train_y, 4))
 
-print(scaledX) 
+r2 = r2_score(test_y, mymodel(test_x))
 
-df = pandas.read_csv("data.csv")
-
-X = df[['Weight', 'Volume']]
-y = df['CO2']
-
-scaledX = scale.fit_transform(X)
-
-regr = linear_model.LinearRegression()
-regr.fit(scaledX, y)
-
-scaled = scale.transform([[2300, 1.3]])
-
-predictedCO2 = regr.predict([scaled[0]])
-print(predictedCO2) 
+print(r2)
+print(mymodel(5))
