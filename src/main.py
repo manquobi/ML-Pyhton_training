@@ -33,6 +33,8 @@ tree.plot_tree(dtree, feature_names=features)
 #sys.stdout.flush()
 plt.show()  # This will display the plot in VS Code
 
+print(dtree.predict([[40, 10, 7, 1]])) 
+
  
 
 
