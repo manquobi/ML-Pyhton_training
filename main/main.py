@@ -1,32 +1,21 @@
-import numpy
-import matplotlib.pyplot as plt
-numpy.random.seed(2)
-from sklearn.metrics import r2_score
+import os
+os.system('cls' if os.name == 'nt' else 'clear')
 
-x = numpy.random.normal(3, 1, 100)
-y = numpy.random.normal(150, 40, 100) / x
+import pandas
 
-plt.scatter(x, y)
-#plt.show() 
+df = pandas.read_csv("data/dt.csv")
 
-train_x = x[:80]
-train_y = y[:80]
-test_x = x[80:]
-test_y = y[80:]
+d = {'UK': 0, 'USA': 1, 'N': 2}
+df['Nationality'] = df['Nationality'].map(d)
+d = {'YES': 1, 'NO': 0}
+df['Go'] = df['Go'].map(d)
 
-mymodel = numpy.poly1d(numpy.polyfit(train_x, train_y, 4))
+print(df) 
 
-myline = numpy.linspace(0, 6, 100)
+features = ['Age', 'Experience', 'Rank', 'Nationality']
 
-plt.scatter(train_x, train_y)
-plt.plot(myline, mymodel(myline))
-plt.show() 
+X = df[features]
+y = df['Go']
 
-r2 = r2_score(train_y, mymodel(train_x))
-
-mymodel = numpy.poly1d(numpy.polyfit(train_x, train_y, 4))
-
-r2 = r2_score(test_y, mymodel(test_x))
-
-print(r2)
-print(mymodel(5))
+print(X)
+print(y)
