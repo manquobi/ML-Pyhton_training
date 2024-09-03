@@ -1,155 +1,82 @@
 import os
 os.system('cls' if os.name == 'nt' else 'clear')
 
-thislist = ["apple", "banana", "cherry"]
-tropical = ["mango", "pineapple", "papaya"]
-thislist.extend(tropical)
-print(thislist)
+x = ("apple", "banana", "cherry") #converting tuple to list and back 
+y = list(x)
+y[1] = "kiwi"
+x = tuple(y)
 
-thislist = ["apple", "banana", "cherry"]
-thistuple = ("kiwi", "orange")
-thislist.extend(thistuple)
-print(thislist)
+print(x) 
 
-thislist = ["apple", "banana", "cherry"]
-thislist.insert(1, "orange")
-print(thislist)
+thistuple = ("apple", "banana", "cherry")
+y = list(thistuple)
+y.append("orange")
+thistuple = tuple(y)
 
-thislist = ["apple", "banana", "cherry"]
-thislist.append("orange")
-print(thislist)
+print(y)
 
-thislist = ["apple", "banana", "cherry"]
-thislist.remove("banana")
-print(thislist)
+thistuple = ("apple", "banana", "cherry")
+y = ("orange",)
+thistuple += y
 
-thislist = ["apple", "banana", "cherry", "banana", "kiwi"]
-thislist.remove("banana")
-print(thislist)
+print(thistuple)
 
-thislist = ["apple", "banana", "cherry"]
-thislist.pop(1)
-print(thislist)
+thistuple = ("apple", "banana", "cherry")
+y = list(thistuple)
+y.remove("apple")
+thistuple = tuple(y)
 
-thislist = ["apple", "banana", "cherry"]
-thislist.pop()
-print(thislist)
+print(thistuple)
 
-thislist = ["apple", "banana", "cherry"]
-del thislist[0]
-print(thislist)
+thistuple = ("apple", "banana", "cherry")
+del thistuple
+#print(thistuple) #this will raise an error because the tuple no longer exists 
 
-thislist = ["apple", "banana", "cherry"]
-del thislist
-#print(thislist)
+fruits = ("apple", "banana", "cherry")
 
-thislist = ["apple", "banana", "cherry"]
-thislist.clear()
-print(thislist)
+(green, yellow, red) = fruits   #unpacking
 
-#thislist = ["apple", "banana", "cherry"]
-#for x in thislist:
-  #print(x) 
+print(green)
+print(yellow)
+print(red)
 
-thislist = ["apple", "banana", "cherry"]
-for i in range(len(thislist)):
-  print(thislist[i]) 
+fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
 
-  thislist = ["mango", "banana", "cherry"]
+(green, yellow, *red) = fruits
+
+print(green)
+print(yellow)
+print(red)
+
+fruits = ("apple", "mango", "papaya", "pineapple", "cherry")
+
+(green, *tropic, red) = fruits
+
+print(green)
+print(tropic)
+print(red)
+
+thistuple = ("apple", "banana", "cherry")
+for x in thistuple:
+  print(x) 
+
+  thistuple = ("apple", "banana", "cherry")
+for i in range(len(thistuple)):
+  print(thistuple[i]) 
+
+  thistuple = ("apple", "banana", "cherry")
 i = 0
-while i < len(thislist):
-  print(thislist[i])
-  i = i + 1
+while i < len(thistuple):
+  print(thistuple[i])
+  i = i + 1 
 
-  thislist = ["kiwi", "banana", "cherry"]
-[print(x) for x in thislist] 
+  tuple1 = ("a", "b" , "c")
+tuple2 = (1, 2, 3)
 
-fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
-newlist = []
+tuple3 = tuple1 + tuple2
+print(tuple3) 
 
-for x in fruits:
-  if "a" in x:
-    newlist.append(x)
+fruits = ("apple", "banana", "cherry")
+mytuple = fruits * 2
 
-print(newlist)
-
-fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
-newlist = [x for x in fruits if "a" in x]
-print(newlist) 
-
-fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
-newlist = [x for x in fruits if x != "apple"]
-print(newlist)
-
-fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
-
-newlist = [x for x in fruits]
-
-print(newlist)
-
-print([x for x in range(10)])
-
-fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
-newlist = [x.upper() for x in fruits] 
-print(newlist)
-
-newlist = ['hello' for x in fruits] 
-print(newlist)
-
-newlist = [x if x != "banana" else "orange" for x in fruits] 
-print(newlist)
-
-thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
-thislist.sort()
-print(thislist)
-
-thislist = [100, 50, 65, 82, 23]
-thislist.sort(reverse = True)
-print(thislist)
-
-def myfunc(n):
-  return abs(n - 50)
-
-thislist = [100, 50, 65, 82, 23]
-thislist.sort(key = myfunc)
-print(thislist)
-
-thislist = ["banana", "Orange", "Kiwi", "cherry"]
-thislist.sort()
-print(thislist)
-
-thislist = ["banana", "Orange", "Kiwi", "cherry"]
-thislist.sort(key = str.lower)
-print(thislist)
-
-thislist = ["banana", "Orange", "Kiwi", "cherry"]
-thislist.reverse()
-print(thislist)
-
-thislist = ["apple", "banana", "cherry"]
-mylist = thislist.copy()
-print(mylist)
-
-thislist = ["apple", "banana", "cherry"]
-mylist = list(thislist)
-print(mylist)
-
-thislist = ["apple", "banana", "cherry"]
-mylist = thislist[:]
-print(mylist)
-
-list1 = ["a", "b", "c"] #concatenate list
-list2 = [1, 2, 3]
-
-list3 = list1 + list2
-print(list3) 
-
-#for x in list2:
-#  list1.append(x)
-
-print(list1)
-
-
-list1.extend(list2)
-print(list1) 
-
+print(mytuple) 
