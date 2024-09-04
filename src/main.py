@@ -1,184 +1,256 @@
 import os
 os.system('cls' if os.name == 'nt' else 'clear')
 
-myset = {"apple", "banana", "cherry"}
-print(type(myset))
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(type(thisdict)) 
+print(thisdict)
 
-thisset = set(("apple", "banana", "cherry")) # note the double round-brackets
-print(thisset) 
+thisdict = dict(name = "John", age = 36, country = "Norway")    # dict constructor
+print(thisdict)
 
-thisset = {"apple", "banana", "cherry"}
-
-for x in thisset:
-  print(x) 
-
-thisset = {"apple", "banana", "cherry"}
-
-print("banana" in thisset) 
-
-thisset = {"apple", "banana", "cherry"}
-
-print("banana" not in thisset) 
-
-thisset = {"apple", "banana", "cherry"}
-
-thisset.add("orange")
-
-print(thisset) 
-
-thisset = {"apple", "banana", "cherry"}
-tropical = {"pineapple", "mango", "papaya"}
-
-thisset.update(tropical)
-
-print(thisset) 
-
-thisset = {"apple", "banana", "cherry"}
-mylist = ["kiwi", "orange"]
-
-thisset.update(mylist)
-
-print(thisset) 
-
-thisset = {"apple", "banana", "cherry"}
-
-thisset.remove("banana")
-
-print(thisset) 
-
-thisset = {"apple", "banana", "cherry"}
-
-thisset.discard("banana")
-
-print(thisset) 
-
-thisset = {"apple", "banana", "cherry"}
-
-x = thisset.pop()
-
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+x = thisdict["model"]
 print(x)
 
-print(thisset) 
+x = thisdict.get("model")
+print(x)
 
-thisset = {"apple", "banana", "cherry"}
+x = thisdict.keys() # GET KEYS
+print(x)
 
-thisset.clear()
 
-print(thisset) 
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
 
-thisset = {"apple", "banana", "cherry"}
+x = car.keys()
 
-del thisset
+print(x) #before the change
 
-#print(thisset)
+car["color"] = "white"
 
-thisset = {"apple", "banana", "cherry"}
+print(x) #after the change 
 
-for x in thisset:
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = thisdict.values() # GET VALUES
+print(x)
+
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = car.values()
+
+print(x) #before the change
+
+car["year"] = 2020
+
+print(x) #after the change 
+
+
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = car.values()
+
+print(x) #before the change
+
+car["color"] = "red"
+
+print(x) #after the change 
+
+x = thisdict.items() # GET ITEMS i.e keys:values
+print(x)
+
+
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = car.items()
+
+print(x) #before the change
+
+car["year"] = 2020
+
+print(x) #after the change 
+
+
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = car.items()
+
+print(x) #before the change
+
+car["color"] = "red"
+
+print(x) #after the change 
+
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+if "model" in thisdict:
+  print("Yes, 'model' is one of the keys in the thisdict dictionary") 
+
+
+  thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.update({"year": 2020}) 
+print(thisdict)
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.update({"color": "red"}) 
+print(thisdict)
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.pop("model")
+print(thisdict) 
+
+thisdict.popitem()
+print(thisdict) 
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+del thisdict["model"]
+print(thisdict) 
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+del thisdict
+#print(thisdict) #this will cause an error because "thisdict" no longer exists.
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.clear()
+print(thisdict) 
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+for x in thisdict:  # LOOP
   print(x) 
 
-set1 = {"a", "b", "c"}
-set2 = {1, 2, 3}
+for x in thisdict:
+  print(thisdict[x]) 
 
-set3 = set1.union(set2)
-print(set3) 
+for x in thisdict.values():
+  print(x) 
 
-set1 = {"a", "b", "c"}  # '|' is the union operator
-set2 = {1, 2, 3}
+for x in thisdict.keys():
+  print(x) 
 
-set3 = set1 | set2
-print(set3) 
+for x, y in thisdict.items():
+  print(x, y) 
 
-set1 = {"a", "b", "c"}
-set2 = {1, 2, 3}
-set3 = {"John", "Elena"}
-set4 = {"apple", "bananas", "cherry"}
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+mydict = thisdict.copy()    # COPY
+print(mydict)
 
-myset = set1.union(set2, set3, set4)
-print(myset) 
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+mydict = dict(thisdict)
+print(mydict) 
 
-set1 = {"a", "b", "c"}
-set2 = {1, 2, 3}
-set3 = {"John", "Elena"}
-set4 = {"apple", "bananas", "cherry"}
 
-myset = set1 | set2 | set3 |set4
-print(myset) 
+myfamily = {
+  "child1" : {
+    "name" : "Emil",
+    "year" : 2004
+  },
+  "child2" : {
+    "name" : "Tobias",
+    "year" : 2007
+  },
+  "child3" : {
+    "name" : "Linus",
+    "year" : 2011
+  }
+}
 
-x = {"a", "b", "c"}
-y = (1, 2, 3)
+print(myfamily)
 
-z = x.union(y)
-print(z) 
 
-set1 = {"a", "b" , "c"}
-set2 = {1, 2, 3}
+child1 = {
+  "name" : "Emil",
+  "year" : 2004
+}
+child2 = {
+  "name" : "Tobias",
+  "year" : 2007
+}
+child3 = {
+  "name" : "Linus",
+  "year" : 2011
+}
 
-set1.update(set2)
-print(set1) 
+myfamily = {
+  "child1" : child1,
+  "child2" : child2,
+  "child3" : child3
+} 
+print(myfamily)
+print(myfamily["child2"]["name"]) 
 
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
+for x, obj in myfamily.items(): # NESTED DICTIONARIES LOOP
+  print(x)
 
-set3 = set1.intersection(set2)
-print(set3) 
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-
-set3 = set1 & set2
-print(set3) 
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-
-set1.intersection_update(set2)
-
-print(set1) 
-
-set1 = {"apple", 1,  "banana", 0, "cherry"}
-set2 = {False, "google", 1, "apple", 2, True}
-
-set3 = set1.intersection(set2)
-
-print(set3)
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-
-set3 = set1.difference(set2)
-
-print(set3) 
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-
-set3 = set1 - set2
-print(set3) 
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-
-set1.difference_update(set2)
-
-print(set1) 
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-
-set3 = set1.symmetric_difference(set2)
-
-print(set3) 
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-
-set3 = set1 ^ set2
-print(set3) 
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-
-set1.symmetric_difference_update(set2)
-
-print(set1) 
+  for y in obj:
+    print(y + ':', obj[y])
