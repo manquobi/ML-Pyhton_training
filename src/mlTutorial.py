@@ -1,20 +1,33 @@
 import os
 os.system('cls' if os.name == 'nt' else 'clear')
 
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.cluster.hierarchy import dendrogram, linkage
-from sklearn.cluster import AgglomerativeClustering
+import numpy
+from sklearn import linear_model
 
-x = [4, 5, 10, 4, 3, 11, 14 , 6, 10, 12]
-y = [21, 19, 24, 17, 16, 25, 24, 22, 21, 21]
+#X represents the size of a tumor in centimeters.
+X = numpy.array([3.78, 2.44, 2.09, 0.14, 1.72, 1.65, 4.92, 4.37, 4.96, 4.52, 3.69, 5.88]).reshape(-1,1)
 
-data = list(zip(x, y))
-print(data)
+#Note: X has to be reshaped into a column from a row for the LogisticRegression() function to work.
+#y represents whether or not the tumor is cancerous (0 for "No", 1 for "Yes").
+y = numpy.array([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1]) 
 
-hierarchical_cluster = AgglomerativeClustering(n_clusters=2, metric='euclidean', linkage='ward')
-labels = hierarchical_cluster.fit_predict(data) 
-print(labels)
+logr = linear_model.LogisticRegression()
+logr.fit(X,y)
 
-plt.scatter(x, y, c=labels)
-plt.show() 
+#predict if tumor is cancerous where the size is 3.46mm:
+predicted = logr.predict(numpy.array([3.46]).reshape(-1,1))
+
+print(predicted)
+
+log_odds = logr.coef_
+odds = numpy.exp(log_odds)
+
+print(odds) 
+
+def logit2prob(logr,x):
+  log_odds = logr.coef_ * x + logr.intercept_
+  odds = numpy.exp(log_odds)
+  probability = odds / (1 + odds)
+  return(probability)
+
+print(logit2prob(logr, X)) 
