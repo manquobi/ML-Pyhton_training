@@ -1,82 +1,184 @@
 import os
 os.system('cls' if os.name == 'nt' else 'clear')
 
-x = ("apple", "banana", "cherry") #converting tuple to list and back 
-y = list(x)
-y[1] = "kiwi"
-x = tuple(y)
+myset = {"apple", "banana", "cherry"}
+print(type(myset))
 
-print(x) 
+thisset = set(("apple", "banana", "cherry")) # note the double round-brackets
+print(thisset) 
 
-thistuple = ("apple", "banana", "cherry")
-y = list(thistuple)
-y.append("orange")
-thistuple = tuple(y)
+thisset = {"apple", "banana", "cherry"}
 
-print(y)
-
-thistuple = ("apple", "banana", "cherry")
-y = ("orange",)
-thistuple += y
-
-print(thistuple)
-
-thistuple = ("apple", "banana", "cherry")
-y = list(thistuple)
-y.remove("apple")
-thistuple = tuple(y)
-
-print(thistuple)
-
-thistuple = ("apple", "banana", "cherry")
-del thistuple
-#print(thistuple) #this will raise an error because the tuple no longer exists 
-
-fruits = ("apple", "banana", "cherry")
-
-(green, yellow, red) = fruits   #unpacking
-
-print(green)
-print(yellow)
-print(red)
-
-fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
-
-(green, yellow, *red) = fruits
-
-print(green)
-print(yellow)
-print(red)
-
-fruits = ("apple", "mango", "papaya", "pineapple", "cherry")
-
-(green, *tropic, red) = fruits
-
-print(green)
-print(tropic)
-print(red)
-
-thistuple = ("apple", "banana", "cherry")
-for x in thistuple:
+for x in thisset:
   print(x) 
 
-  thistuple = ("apple", "banana", "cherry")
-for i in range(len(thistuple)):
-  print(thistuple[i]) 
+thisset = {"apple", "banana", "cherry"}
 
-  thistuple = ("apple", "banana", "cherry")
-i = 0
-while i < len(thistuple):
-  print(thistuple[i])
-  i = i + 1 
+print("banana" in thisset) 
 
-  tuple1 = ("a", "b" , "c")
-tuple2 = (1, 2, 3)
+thisset = {"apple", "banana", "cherry"}
 
-tuple3 = tuple1 + tuple2
-print(tuple3) 
+print("banana" not in thisset) 
 
-fruits = ("apple", "banana", "cherry")
-mytuple = fruits * 2
+thisset = {"apple", "banana", "cherry"}
 
-print(mytuple) 
+thisset.add("orange")
+
+print(thisset) 
+
+thisset = {"apple", "banana", "cherry"}
+tropical = {"pineapple", "mango", "papaya"}
+
+thisset.update(tropical)
+
+print(thisset) 
+
+thisset = {"apple", "banana", "cherry"}
+mylist = ["kiwi", "orange"]
+
+thisset.update(mylist)
+
+print(thisset) 
+
+thisset = {"apple", "banana", "cherry"}
+
+thisset.remove("banana")
+
+print(thisset) 
+
+thisset = {"apple", "banana", "cherry"}
+
+thisset.discard("banana")
+
+print(thisset) 
+
+thisset = {"apple", "banana", "cherry"}
+
+x = thisset.pop()
+
+print(x)
+
+print(thisset) 
+
+thisset = {"apple", "banana", "cherry"}
+
+thisset.clear()
+
+print(thisset) 
+
+thisset = {"apple", "banana", "cherry"}
+
+del thisset
+
+#print(thisset)
+
+thisset = {"apple", "banana", "cherry"}
+
+for x in thisset:
+  print(x) 
+
+set1 = {"a", "b", "c"}
+set2 = {1, 2, 3}
+
+set3 = set1.union(set2)
+print(set3) 
+
+set1 = {"a", "b", "c"}  # '|' is the union operator
+set2 = {1, 2, 3}
+
+set3 = set1 | set2
+print(set3) 
+
+set1 = {"a", "b", "c"}
+set2 = {1, 2, 3}
+set3 = {"John", "Elena"}
+set4 = {"apple", "bananas", "cherry"}
+
+myset = set1.union(set2, set3, set4)
+print(myset) 
+
+set1 = {"a", "b", "c"}
+set2 = {1, 2, 3}
+set3 = {"John", "Elena"}
+set4 = {"apple", "bananas", "cherry"}
+
+myset = set1 | set2 | set3 |set4
+print(myset) 
+
+x = {"a", "b", "c"}
+y = (1, 2, 3)
+
+z = x.union(y)
+print(z) 
+
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+
+set1.update(set2)
+print(set1) 
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+
+set3 = set1.intersection(set2)
+print(set3) 
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+
+set3 = set1 & set2
+print(set3) 
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+
+set1.intersection_update(set2)
+
+print(set1) 
+
+set1 = {"apple", 1,  "banana", 0, "cherry"}
+set2 = {False, "google", 1, "apple", 2, True}
+
+set3 = set1.intersection(set2)
+
+print(set3)
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+
+set3 = set1.difference(set2)
+
+print(set3) 
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+
+set3 = set1 - set2
+print(set3) 
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+
+set1.difference_update(set2)
+
+print(set1) 
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+
+set3 = set1.symmetric_difference(set2)
+
+print(set3) 
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+
+set3 = set1 ^ set2
+print(set3) 
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+
+set1.symmetric_difference_update(set2)
+
+print(set1) 
