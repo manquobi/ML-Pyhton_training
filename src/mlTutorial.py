@@ -31,3 +31,4 @@ def logit2prob(logr,x):
   return(probability)
 
 print(logit2prob(logr, X)) 
+
