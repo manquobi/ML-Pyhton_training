@@ -1,256 +1,60 @@
+
+
+
 import os
 os.system('cls' if os.name == 'nt' else 'clear')
 
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-print(type(thisdict)) 
-print(thisdict)
 
-thisdict = dict(name = "John", age = 36, country = "Norway")    # dict constructor
-print(thisdict)
+a = 33                            # IF, ELIF, ELSE
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
 
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-x = thisdict["model"]
-print(x)
+  a = 200
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+else:
+  print("a is greater than b")
 
-x = thisdict.get("model")
-print(x)
+if a > b: print("a is greater than b") 
 
-x = thisdict.keys() # GET KEYS
-print(x)
+print("A") if a > b else print("B") 
 
+print("A") if a > b else print("=") if a == b else print("B") 
 
-car = {
-"brand": "Ford",
-"model": "Mustang",
-"year": 1964
-}
+a = 200
+b = 33
+c = 500
+if a > b and c > a:                  #  AND
+  print("Both conditions are True")
 
-x = car.keys()
+a = 200
+b = 33
+c = 500
+if a > b or a > c:                                # OR
+  print("At least one of the conditions is True")
 
-print(x) #before the change
+a = 33
+b = 200
+if not a > b:
+  print("a is NOT greater than b")              # NOT
 
-car["color"] = "white"
+x = 41
 
-print(x) #after the change 
+if x > 10:
+  print("Above ten,")
+  if x > 20:                    # NESTED IF
+    print("and also above 20!")
+  else:
+    print("but not above 20.") 
 
-car = {
-"brand": "Ford",
-"model": "Mustang",
-"year": 1964
-}
+a = 33
+b = 200
 
-x = thisdict.values() # GET VALUES
-print(x)
-
-car = {
-"brand": "Ford",
-"model": "Mustang",
-"year": 1964
-}
-
-x = car.values()
-
-print(x) #before the change
-
-car["year"] = 2020
-
-print(x) #after the change 
-
-
-car = {
-"brand": "Ford",
-"model": "Mustang",
-"year": 1964
-}
-
-x = car.values()
-
-print(x) #before the change
-
-car["color"] = "red"
-
-print(x) #after the change 
-
-x = thisdict.items() # GET ITEMS i.e keys:values
-print(x)
-
-
-car = {
-"brand": "Ford",
-"model": "Mustang",
-"year": 1964
-}
-
-x = car.items()
-
-print(x) #before the change
-
-car["year"] = 2020
-
-print(x) #after the change 
-
-
-car = {
-"brand": "Ford",
-"model": "Mustang",
-"year": 1964
-}
-
-x = car.items()
-
-print(x) #before the change
-
-car["color"] = "red"
-
-print(x) #after the change 
-
-
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-if "model" in thisdict:
-  print("Yes, 'model' is one of the keys in the thisdict dictionary") 
-
-
-  thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-thisdict.update({"year": 2020}) 
-print(thisdict)
-
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-thisdict.update({"color": "red"}) 
-print(thisdict)
-
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-thisdict.pop("model")
-print(thisdict) 
-
-thisdict.popitem()
-print(thisdict) 
-
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-del thisdict["model"]
-print(thisdict) 
-
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-del thisdict
-#print(thisdict) #this will cause an error because "thisdict" no longer exists.
-
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-thisdict.clear()
-print(thisdict) 
-
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-for x in thisdict:  # LOOP
-  print(x) 
-
-for x in thisdict:
-  print(thisdict[x]) 
-
-for x in thisdict.values():
-  print(x) 
-
-for x in thisdict.keys():
-  print(x) 
-
-for x, y in thisdict.items():
-  print(x, y) 
-
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-mydict = thisdict.copy()    # COPY
-print(mydict)
-
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-mydict = dict(thisdict)
-print(mydict) 
-
-
-myfamily = {
-  "child1" : {
-    "name" : "Emil",
-    "year" : 2004
-  },
-  "child2" : {
-    "name" : "Tobias",
-    "year" : 2007
-  },
-  "child3" : {
-    "name" : "Linus",
-    "year" : 2011
-  }
-}
-
-print(myfamily)
-
-
-child1 = {
-  "name" : "Emil",
-  "year" : 2004
-}
-child2 = {
-  "name" : "Tobias",
-  "year" : 2007
-}
-child3 = {
-  "name" : "Linus",
-  "year" : 2011
-}
-
-myfamily = {
-  "child1" : child1,
-  "child2" : child2,
-  "child3" : child3
-} 
-print(myfamily)
-print(myfamily["child2"]["name"]) 
-
-for x, obj in myfamily.items(): # NESTED DICTIONARIES LOOP
-  print(x)
-
-  for y in obj:
-    print(y + ':', obj[y])
+if b > a: # PASS STATEMENT
+  pass
