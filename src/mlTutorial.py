@@ -32,3 +32,8 @@ def logit2prob(logr,x):
 
 print(logit2prob(logr, X)) 
 
+import pandas as pd
+import numpy as np
+data = pd.read_csv('data/titanic3.csv')
+
+print(data)
